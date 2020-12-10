@@ -91,10 +91,13 @@ dirdep:
 install: all
 
 $(TMPOBJPATH)/%.o : %.c
+	$(MKDIR) $(dir $@)
 	@echo " [CC]    ($@)"
 	@echo " $(CC) $(CFLAGS) $(INCPATH) -c $< -o $@"
 	@$(CC) $(CFLAGS) $(INCPATH) -c $< -o $@
+
 $(TMPOBJPATH)/%.o : %.cpp
+	$(MKDIR) $(dir $@)
 	@echo " [CXX]   ($@)"
 	@echo " $(CXX) $(CXXFLAGS) $(INCPATH) -c $< -o $@"
 	@$(CXX) $(CXXFLAGS) $(INCPATH) -c $< -o $@
